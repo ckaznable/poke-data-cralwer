@@ -62,8 +62,8 @@ async function getPokemonWithIV(): Promise<Record<number, PokemonIV>> {
       hp: getDomTextNumber(data[6]),
       att: getDomTextNumber(data[7]),
       def: getDomTextNumber(data[8]),
-      sAtt: getDomTextNumber(data[9]),
-      sDef: getDomTextNumber(data[10]),
+      s_att: getDomTextNumber(data[9]),
+      s_def: getDomTextNumber(data[10]),
       spd: getDomTextNumber(data[11])
     }
 

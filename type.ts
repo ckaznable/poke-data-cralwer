@@ -12,8 +12,8 @@ export interface PokemonIV {
   hp: number
   att: number
   def: number
-  sAtt: number
-  sDef: number
+  s_att: number
+  s_def: number
   spd: number
 }
 
