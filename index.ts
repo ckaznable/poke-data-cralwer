@@ -30,7 +30,7 @@ async function getPokemonList(): Promise<Pokemon[]> {
 
     noSet.add(no)
     const type: [PokemonType] | [PokemonType, PokemonType] = [getTypeZHToEN(data[5].textContent as string)]
-    if(data.length === 6) {
+    if(data.length === 7) {
       type.push(getTypeZHToEN(data[6].textContent as string))
     }
 
