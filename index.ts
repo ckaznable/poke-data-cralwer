@@ -4,7 +4,7 @@ import { getDomTextNumber, getTypeZHToEN } from "./util.js"
 import { writeFileSync } from "node:fs"
 import { mkdirp } from 'mkdirp'
 
-import type { Pokemon, PokemonIV, PokemonType, PokemonWithIV } from "./type"
+import { Pokemon, PokemonIV, PokemonType, PokemonWithIV } from "./type.js"
 
 async function getUrlDoc(url: string) {
   const { window } = new JSDOM(await (await (await fetch(url)).text()).replace(/[\n\t\r]/g, ""))
@@ -30,8 +30,11 @@ async function getPokemonList(): Promise<Pokemon[]> {
 
     noSet.add(no)
     const type: [PokemonType] | [PokemonType, PokemonType] = [getTypeZHToEN(data[5].textContent as string)]
-    if(data.length === 7) {
-      type.push(getTypeZHToEN(data[6].textContent as string))
+    if (data.length === 7) {
+      const enumT = getTypeZHToEN(data[6].textContent as string)
+      if(enumT != PokemonType.Unknown) {
+        type.push(enumT)
+      }
     }
 
     list.push({
