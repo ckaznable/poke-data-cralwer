@@ -46,3 +46,7 @@ export enum PokemonType {
 
 export type PokemonForm = Omit<PokemonWithIV, "no" | "name" | "form"> & { form: string[] }
 export type PokemonFormMap = Record<number, PokemonForm[]>
+
+export enum SupportLang {
+  EN, JP, ZH
+}

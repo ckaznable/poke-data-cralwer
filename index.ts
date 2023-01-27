@@ -4,8 +4,9 @@ import { getDomTextNumber, getTypeZHToEN } from "./util.js"
 import { writeFileSync } from "node:fs"
 import { mkdirp } from "mkdirp"
 import Form from "./form/index.js"
+import { t } from "./translate.js"
 
-import { Pokemon, PokemonIV, PokemonType, PokemonWithIV } from "./type.js"
+import { Pokemon, PokemonIV, PokemonType, PokemonWithIV, SupportLang } from "./type.js"
 
 async function getUrlDoc(url: string) {
   const { window } = new JSDOM(await (await (await fetch(url)).text()).replace(/[\n\t\r]/g, ""))
@@ -101,8 +102,8 @@ function flatForm(pm: PokemonWithIV[]): PokemonWithIV[] {
         list.push({
           ...__pm,
           name: {
-            jp: `${_pm.name.jp} - ${__pm.form.join(" ")}`,
-            zh: `${_pm.name.zh} - ${__pm.form.join(" ")}`,
+            jp: `${_pm.name.jp} - ${__pm.form.map(f => t(f, SupportLang.JP)).join(" ")}`,
+            zh: `${_pm.name.zh} - ${__pm.form.map(f => t(f, SupportLang.ZH)).join(" ")}`,
             en: `${_pm.name.en} - ${__pm.form.join(" ")}`,
           },
           no: _pm.no,
