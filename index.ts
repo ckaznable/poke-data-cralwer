@@ -2,7 +2,8 @@ import { JSDOM } from "jsdom"
 import fetch from "node-fetch"
 import { getDomTextNumber, getTypeZHToEN } from "./util.js"
 import { writeFileSync } from "node:fs"
-import { mkdirp } from 'mkdirp'
+import { mkdirp } from "mkdirp"
+import Form from "./form/index.js"
 
 import { Pokemon, PokemonIV, PokemonType, PokemonWithIV } from "./type.js"
 
@@ -81,8 +82,18 @@ function merge(pm: Pokemon[], pmiv: Record<number, PokemonIV>): PokemonWithIV[] 
   }))
 }
 
+function pushForm(pm: PokemonWithIV[]): PokemonWithIV[] {
+  return pm.map(_pm => {
+    if(_pm.no in Form) {
+      _pm.form = Form[_pm.no]
+    }
+
+    return _pm
+  })
+}
+
 async function main() {
-  const data = merge(await getPokemonList(), await getPokemonWithIV())
+  const data = pushForm(merge(await getPokemonList(), await getPokemonWithIV()))
   await mkdirp("./dist")
   writeFileSync("./dist/out.json", JSON.stringify(data))
 }

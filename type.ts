@@ -6,6 +6,7 @@ export interface Pokemon {
     jp: string
   }
   no: number
+  form?: PokemonForm[]
 }
 
 export interface PokemonIV {
@@ -42,3 +43,6 @@ export enum PokemonType {
   Fairy = "fairy",
   Unknown = "unknown"
 }
+
+export type PokemonForm = Omit<PokemonWithIV, "no" | "name" | "form"> & { form: string[] }
+export type PokemonFormMap = Record<number, PokemonForm[]>
