@@ -29,7 +29,21 @@ you can found json in dist dictionary.
       s_att: number
       s_def: number
       spd: number
-    }
+    },
+    form?: [
+      {
+        type: [string] | [string, string],
+        iv: {
+          hp: number
+          att: number
+          def: number
+          s_att: number
+          s_def: number
+          spd: number
+        }
+      },
+    ],
+    ...
   }
   ...
 ]
