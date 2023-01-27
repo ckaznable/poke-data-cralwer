@@ -42,8 +42,8 @@ you can found json in dist dictionary.
           spd: number
         }
       },
+      ...
     ],
-    ...
   }
   ...
 ]
