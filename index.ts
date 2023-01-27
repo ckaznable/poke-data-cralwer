@@ -92,10 +92,38 @@ function pushForm(pm: PokemonWithIV[]): PokemonWithIV[] {
   })
 }
 
+function flatForm(pm: PokemonWithIV[]): PokemonWithIV[] {
+  return pm.reduce((list, _pm) => {
+    list.push(_pm)
+
+    if (_pm.no in Form) {
+      Form[_pm.no].forEach(__pm => {
+        list.push({
+          ...__pm,
+          name: {
+            jp: `${_pm.name.jp} - ${__pm.form.join(" ")}`,
+            zh: `${_pm.name.zh} - ${__pm.form.join(" ")}`,
+            en: `${_pm.name.en} - ${__pm.form.join(" ")}`,
+          },
+          no: _pm.no,
+          form: undefined
+        })
+      })
+    }
+
+    return list
+  }, [] as PokemonWithIV[])
+}
+
 async function main() {
-  const data = pushForm(merge(await getPokemonList(), await getPokemonWithIV()))
+  const mergedData = merge(await getPokemonList(), await getPokemonWithIV())
   await mkdirp("./dist")
-  writeFileSync("./dist/out.json", JSON.stringify(data))
+
+  const data = pushForm(mergedData)
+  writeFileSync("./dist/pokemon.json", JSON.stringify(data))
+
+  const flatData = flatForm(mergedData)
+  writeFileSync("./dist/pokemon_flat.json", JSON.stringify(flatData))
 }
 
 ;(async () => {
