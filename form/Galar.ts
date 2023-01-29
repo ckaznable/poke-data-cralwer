@@ -1,9 +1,8 @@
-import { PokemonForm, PokemonFormMap, PokemonType } from "../type.js"
-
-type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+import { PokemonFormTmp, PokemonType } from "../type.js"
+import { fillRegionForm } from "../util.js"
 
 const form = ["Galar"]
-const data: Record<number, PartialBy<PokemonForm, "form">[]> = {
+const data: PokemonFormTmp = {
   52: [{
     type: [PokemonType.Steel],
     iv: {
@@ -229,13 +228,4 @@ const data: Record<number, PartialBy<PokemonForm, "form">[]> = {
   }],
 }
 
-let fillData: PokemonFormMap = {}
-for (const key in data) {
-  const _data = data[key] as unknown as PokemonForm[]
-  fillData[key] = _data.map(i => {
-    i.form = [...form, ...(i.form || [])]
-    return i
-  })
-}
-
-export default fillData as PokemonFormMap
+export default fillRegionForm(data, form)

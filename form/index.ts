@@ -1,6 +1,7 @@
 import Alola from "./Alola.js"
 import Galar from "./Galar.js"
 import Hisui from "./Hisui.js"
+import Paldea from "./Paldea.js"
 import _ from "lodash"
 import { PokemonFormMap } from "../type.js"
 
@@ -22,4 +23,4 @@ function _merge(...f: PokemonFormMap[]): PokemonFormMap {
   }, {} as PokemonFormMap)
 }
 
-export default _merge(Alola, Galar, Hisui)
+export default _merge(Alola, Galar, Hisui, Paldea)

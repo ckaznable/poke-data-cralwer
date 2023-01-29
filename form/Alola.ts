@@ -1,7 +1,8 @@
-import { PokemonForm, PokemonFormMap, PokemonType } from "../type.js"
+import { PokemonFormTmp, PokemonType } from "../type.js"
+import { fillRegionForm } from "../util.js"
 
 const form = ["Alola"]
-let data: Record<number, Omit<PokemonForm, "form">[]> = {
+let data: PokemonFormTmp = {
   19: [{
     type: [PokemonType.Normal, PokemonType.Dark],
     iv: {
@@ -202,13 +203,4 @@ let data: Record<number, Omit<PokemonForm, "form">[]> = {
   }],
 }
 
-let fillData: PokemonFormMap = {}
-for (const key in data) {
-  const _data = data[key] as unknown as PokemonForm[]
-  fillData[key] = _data.map(i => {
-    i.form = form
-    return i
-  })
-}
-
-export default fillData as PokemonFormMap
+export default fillRegionForm(data, form)

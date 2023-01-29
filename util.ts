@@ -1,4 +1,4 @@
-import { PokemonType } from "./type.js"
+import { PokemonForm, PokemonFormMap, PokemonFormTmp, PokemonType } from "./type.js"
 
 export function getTypeZHToEN(zh: string): PokemonType {
   switch(zh) {
@@ -33,4 +33,17 @@ export function getDomTextNumber(dom: HTMLElement) {
   }
 
   return 0
+}
+
+export function fillRegionForm(data: PokemonFormTmp, form: string[]) {
+  let fillData: PokemonFormMap = {}
+  for (const key in data) {
+    const _data = data[key] as unknown as PokemonForm[]
+    fillData[key] = _data.map(i => {
+      i.form = [...form, ...(i.form || [])]
+      return i
+    })
+  }
+
+  return fillData
 }
