@@ -12,9 +12,11 @@ export async function getHtml(url: string): Promise<string> {
   }
 
   if(url in cache) {
+    console.log(`get cache from file ${CACHE_DIR}/${cacheFileName} ${url.slice(0, 50)}${url.length>50?"...":""}`)
     return cache[url]
   }
 
+  console.log(`fetch ${url}`)
   const html = (await (await fetch(url)).text()).replace(/[\n\t\r]/g, "")
   cache[url] = html
   storeCache(cacheFileName, cache)
