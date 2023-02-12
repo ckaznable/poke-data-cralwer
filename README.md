@@ -6,6 +6,13 @@ generate pokemon data json and cralwer from [wiki.52poke.com](https://wiki.52pok
 
 you can found `pokemon.json` and `pokemon_flat.json` in dist dictionary.
 
+# Roadmap
+
+- [x] pokemon iv and type data
+- [x] pokemon translate name
+- [ ] move data
+- [ ] ability data
+
 ## Data struct
 
 `pokemon.json`
