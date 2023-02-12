@@ -5,6 +5,7 @@ const form = ["Galar"]
 const data: PokemonFormTmp = {
   52: [{
     type: [PokemonType.Steel],
+    ability: [53, 181, 127],
     iv: {
       hp: 50,
       att: 65,
@@ -16,6 +17,7 @@ const data: PokemonFormTmp = {
   }],
   77: [{
     type: [PokemonType.Psychic],
+    ability: [50, 257, 107],
     iv: {
       hp: 50,
       att: 85,
@@ -27,6 +29,7 @@ const data: PokemonFormTmp = {
   }],
   78: [{
     type: [PokemonType.Psychic, PokemonType.Fairy],
+    ability: [50, 257, 107],
     iv: {
       hp: 65,
       att: 100,
@@ -38,6 +41,7 @@ const data: PokemonFormTmp = {
   }],
   79: [{
     type: [PokemonType.Psychic],
+    ability: [82, 20, 144],
     iv: {
       hp: 90,
       att: 65,
@@ -49,6 +53,7 @@ const data: PokemonFormTmp = {
   }],
   80: [{
     type: [PokemonType.Poison, PokemonType.Psychic],
+    ability: [259, 20, 144],
     iv: {
       hp: 95,
       att: 100,
@@ -60,6 +65,7 @@ const data: PokemonFormTmp = {
   }],
   83: [{
     type: [PokemonType.Fighting],
+    ability: [80, 113],
     iv: {
       hp: 52,
       att: 95,
@@ -71,6 +77,7 @@ const data: PokemonFormTmp = {
   }],
   110: [{
     type: [PokemonType.Poison, PokemonType.Fairy],
+    ability: [26, 256, 228],
     iv: {
       hp: 65,
       att: 90,
@@ -82,6 +89,7 @@ const data: PokemonFormTmp = {
   }],
   122: [{
     type: [PokemonType.Ice, PokemonType.Psychic],
+    ability: [72, 251, 115],
     iv: {
       hp: 50,
       att: 65,
@@ -93,6 +101,7 @@ const data: PokemonFormTmp = {
   }],
   144: [{
     type: [PokemonType.Psychic, PokemonType.Flying],
+    ability: [172],
     iv: {
       hp: 90,
       att: 85,
@@ -104,6 +113,7 @@ const data: PokemonFormTmp = {
   }],
   145: [{
     type: [PokemonType.Fighting, PokemonType.Flying],
+    ability: [128],
     iv: {
       hp: 90,
       att: 125,
@@ -115,6 +125,7 @@ const data: PokemonFormTmp = {
   }],
   146: [{
     type: [PokemonType.Dark, PokemonType.Flying],
+    ability: [201],
     iv: {
       hp: 90,
       att: 85,
@@ -126,6 +137,7 @@ const data: PokemonFormTmp = {
   }],
   199: [{
     type: [PokemonType.Poison, PokemonType.Psychic],
+    ability: [261, 20, 144],
     iv: {
       hp: 95,
       att: 65,
@@ -137,6 +149,7 @@ const data: PokemonFormTmp = {
   }],
   222: [{
     type: [PokemonType.Ghost],
+    ability: [133, 130],
     iv: {
       hp: 60,
       att: 55,
@@ -148,6 +161,7 @@ const data: PokemonFormTmp = {
   }],
   263: [{
     type: [PokemonType.Dark, PokemonType.Normal],
+    ability: [53, 82, 95],
     iv: {
       hp: 38,
       att: 30,
@@ -159,6 +173,7 @@ const data: PokemonFormTmp = {
   }],
   264: [{
     type: [PokemonType.Dark, PokemonType.Normal],
+    ability: [53, 82, 95],
     iv: {
       hp: 78,
       att: 70,
@@ -170,6 +185,7 @@ const data: PokemonFormTmp = {
   }],
   554: [{
     type: [PokemonType.Ice],
+    ability: [55, 39],
     iv: {
       hp: 70,
       att: 90,
@@ -182,6 +198,7 @@ const data: PokemonFormTmp = {
   555: [
     {
       type: [PokemonType.Ice],
+      ability: [255, 161],
       iv: {
         hp: 105,
         att: 140,
@@ -193,6 +210,7 @@ const data: PokemonFormTmp = {
     },
     {
       form: ["Zen Mode"],
+      ability: [161],
       type: [PokemonType.Ice, PokemonType.Fire],
       iv: {
         hp: 105,
@@ -206,6 +224,7 @@ const data: PokemonFormTmp = {
   ],
   562: [{
     type: [PokemonType.Ground, PokemonType.Ghost],
+    ability: [254],
     iv: {
       hp: 38,
       att: 55,
@@ -217,6 +236,7 @@ const data: PokemonFormTmp = {
   }],
   618: [{
     type: [PokemonType.Ground, PokemonType.Steel],
+    ability: [250],
     iv: {
       hp: 109,
       att: 81,

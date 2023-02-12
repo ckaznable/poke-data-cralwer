@@ -5,6 +5,7 @@ const form = ["Hisui"]
 const data: PokemonFormTmp = {
   58: [{
     type: [PokemonType.Fire, PokemonType.Rock],
+    ability: [22, 18, 69],
     iv: {
       hp: 60,
       att: 75,
@@ -16,6 +17,7 @@ const data: PokemonFormTmp = {
   }],
   59: [{
     type: [PokemonType.Psychic],
+    ability: [22, 18, 69],
     iv: {
       hp: 95,
       att: 115,
@@ -27,6 +29,7 @@ const data: PokemonFormTmp = {
   }],
   101: [{
     type: [PokemonType.Electric, PokemonType.Grass],
+    ability: [43, 9, 106],
     iv: {
       hp: 40,
       att: 30,
@@ -38,6 +41,7 @@ const data: PokemonFormTmp = {
   }],
   102: [{
     type: [PokemonType.Electric, PokemonType.Grass],
+    ability: [43, 9, 106],
     iv: {
       hp: 60,
       att: 50,
@@ -49,6 +53,7 @@ const data: PokemonFormTmp = {
   }],
   157: [{
     type: [PokemonType.Fire, PokemonType.Ghost],
+    ability: [66, 119],
     iv: {
       hp: 73,
       att: 84,
@@ -60,6 +65,7 @@ const data: PokemonFormTmp = {
   }],
   211: [{
     type: [PokemonType.Dark, PokemonType.Poison],
+    ability: [38, 33, 22],
     iv: {
       hp: 65,
       att: 95,
@@ -71,6 +77,7 @@ const data: PokemonFormTmp = {
   }],
   215: [{
     type: [PokemonType.Fighting, PokemonType.Poison],
+    ability: [39, 51, 124],
     iv: {
       hp: 55,
       att: 95,
@@ -82,6 +89,7 @@ const data: PokemonFormTmp = {
   }],
   503: [{
     type: [PokemonType.Water, PokemonType.Dark],
+    ability: [67, 292],
     iv: {
       hp: 90,
       att: 108,
@@ -93,6 +101,7 @@ const data: PokemonFormTmp = {
   }],
   549: [{
     type: [PokemonType.Grass, PokemonType.Fighting],
+    ability: [34, 55, 102],
     iv: {
       hp: 70,
       att: 105,
@@ -104,6 +113,7 @@ const data: PokemonFormTmp = {
   }],
   570: [{
     type: [PokemonType.Normal, PokemonType.Ghost],
+    ability: [149],
     iv: {
       hp: 35,
       att: 60,
@@ -115,6 +125,7 @@ const data: PokemonFormTmp = {
   }],
   571: [{
     type: [PokemonType.Normal, PokemonType.Ghost],
+    ability: [149],
     iv: {
       hp: 55,
       att: 100,
@@ -126,6 +137,7 @@ const data: PokemonFormTmp = {
   }],
   628: [{
     type: [PokemonType.Psychic, PokemonType.Flying],
+    ability: [51, 125, 110],
     iv: {
       hp: 110,
       att: 83,
@@ -137,6 +149,7 @@ const data: PokemonFormTmp = {
   }],
   705: [{
     type: [PokemonType.Steel, PokemonType.Dragon],
+    ability: [157, 75, 183],
     iv: {
       hp: 58,
       att: 75,
@@ -148,6 +161,7 @@ const data: PokemonFormTmp = {
   }],
   706: [{
     type: [PokemonType.Steel, PokemonType.Dragon],
+    ability: [157, 75, 183],
     iv: {
       hp: 80,
       att: 100,
@@ -159,6 +173,7 @@ const data: PokemonFormTmp = {
   }],
   713: [{
     type: [PokemonType.Ice, PokemonType.Rock],
+    ability: [173, 115, 5],
     iv: {
       hp: 95,
       att: 127,
@@ -170,6 +185,7 @@ const data: PokemonFormTmp = {
   }],
   724: [{
     type: [PokemonType.Grass, PokemonType.Fighting],
+    ability: [65, 113],
     iv: {
       hp: 88,
       att: 112,
@@ -179,53 +195,47 @@ const data: PokemonFormTmp = {
       spd: 60
     }
   }],
-  555: [
+  550: [
     {
-      type: [PokemonType.Ice],
+      form: ["Red-Striped"],
+      type: [PokemonType.Water],
+      ability: [120, 91, 104],
       iv: {
-        hp: 105,
-        att: 140,
-        def: 55,
-        s_att: 30,
+        hp: 70,
+        att: 92,
+        def: 65,
+        s_att: 80,
         s_def: 55,
-        spd: 95
+        spd: 98
       }
     },
     {
-      form: ["Zen Mode"],
-      type: [PokemonType.Ice, PokemonType.Fire],
+      form: ["Blue-Striped"],
+      type: [PokemonType.Water],
+      ability: [69, 91, 104],
       iv: {
-        hp: 105,
-        att: 160,
-        def: 55,
-        s_att: 30,
+        hp: 70,
+        att: 92,
+        def: 65,
+        s_att: 80,
         s_def: 55,
-        spd: 135
+        spd: 98
+      }
+    },
+    {
+      form: ["White-Striped"],
+      type: [PokemonType.Water],
+      ability: [155, 91, 104],
+      iv: {
+        hp: 70,
+        att: 92,
+        def: 65,
+        s_att: 80,
+        s_def: 55,
+        spd: 98
       }
     }
   ],
-  562: [{
-    type: [PokemonType.Ground, PokemonType.Ghost],
-    iv: {
-      hp: 38,
-      att: 55,
-      def: 85,
-      s_att: 30,
-      s_def: 65,
-      spd: 30
-    }
-  }],
-  618: [{
-    type: [PokemonType.Ground, PokemonType.Steel],
-    iv: {
-      hp: 109,
-      att: 81,
-      def: 99,
-      s_att: 66,
-      s_def: 84,
-      spd: 32
-    }
-  }],
 }
 
 export default fillRegionForm(data, form)

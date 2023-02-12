@@ -5,6 +5,7 @@ const form = ["Alola"]
 let data: PokemonFormTmp = {
   19: [{
     type: [PokemonType.Normal, PokemonType.Dark],
+    ability: [82, 55, 47],
     iv: {
       hp: 30,
       att: 56,
@@ -16,6 +17,7 @@ let data: PokemonFormTmp = {
   }],
   20: [{
     type: [PokemonType.Normal, PokemonType.Dark],
+    ability: [82, 55, 47],
     iv: {
       hp: 75,
       att: 71,
@@ -27,6 +29,7 @@ let data: PokemonFormTmp = {
   }],
   26: [{
     type: [PokemonType.Electric, PokemonType.Psychic],
+    ability: [207],
     iv: {
       hp: 60,
       att: 85,
@@ -38,6 +41,7 @@ let data: PokemonFormTmp = {
   }],
   27: [{
     type: [PokemonType.Ice, PokemonType.Steel],
+    ability: [81, 202],
     iv: {
       hp: 50,
       att: 75,
@@ -49,6 +53,7 @@ let data: PokemonFormTmp = {
   }],
   28: [{
     type: [PokemonType.Ice, PokemonType.Steel],
+    ability: [81, 202],
     iv: {
       hp: 75,
       att: 100,
@@ -60,6 +65,7 @@ let data: PokemonFormTmp = {
   }],
   29: [{
     type: [PokemonType.Ice],
+    ability: [81, 117],
     iv: {
       hp: 38,
       att: 41,
@@ -71,6 +77,7 @@ let data: PokemonFormTmp = {
   }],
   30: [{
     type: [PokemonType.Ice, PokemonType.Fairy],
+    ability: [81, 117],
     iv: {
       hp: 73,
       att: 67,
@@ -82,6 +89,7 @@ let data: PokemonFormTmp = {
   }],
   50: [{
     type: [PokemonType.Ground, PokemonType.Steel],
+    ability: [8, 221, 159],
     iv: {
       hp: 10,
       att: 55,
@@ -93,6 +101,7 @@ let data: PokemonFormTmp = {
   }],
   51: [{
     type: [PokemonType.Ground, PokemonType.Steel],
+    ability: [8, 221, 159],
     iv: {
       hp: 35,
       att: 100,
@@ -104,6 +113,7 @@ let data: PokemonFormTmp = {
   }],
   52: [{
     type: [PokemonType.Dark],
+    ability: [53, 101, 155],
     iv: {
       hp: 40,
       att: 35,
@@ -115,6 +125,7 @@ let data: PokemonFormTmp = {
   }],
   53: [{
     type: [PokemonType.Dark],
+    ability: [169, 101, 155],
     iv: {
       hp: 65,
       att: 60,
@@ -126,6 +137,7 @@ let data: PokemonFormTmp = {
   }],
   74: [{
     type: [PokemonType.Ground, PokemonType.Electric],
+    ability: [42, 5, 206],
     iv: {
       hp: 40,
       att: 80,
@@ -137,6 +149,7 @@ let data: PokemonFormTmp = {
   }],
   75: [{
     type: [PokemonType.Ground, PokemonType.Electric],
+    ability: [42, 5, 206],
     iv: {
       hp: 55,
       att: 95,
@@ -148,6 +161,7 @@ let data: PokemonFormTmp = {
   }],
   76: [{
     type: [PokemonType.Ground, PokemonType.Electric],
+    ability: [42, 5, 206],
     iv: {
       hp: 80,
       att: 120,
@@ -159,6 +173,7 @@ let data: PokemonFormTmp = {
   }],
   88: [{
     type: [PokemonType.Poison, PokemonType.Dark],
+    ability: [143, 82, 223],
     iv: {
       hp: 80,
       att: 80,
@@ -170,6 +185,7 @@ let data: PokemonFormTmp = {
   }],
   89: [{
     type: [PokemonType.Poison, PokemonType.Dark],
+    ability: [143, 82, 223],
     iv: {
       hp: 105,
       att: 105,
@@ -181,6 +197,7 @@ let data: PokemonFormTmp = {
   }],
   103: [{
     type: [PokemonType.Grass, PokemonType.Dragon],
+    ability: [119, 139],
     iv: {
       hp: 95,
       att: 105,
@@ -192,6 +209,7 @@ let data: PokemonFormTmp = {
   }],
   105: [{
     type: [PokemonType.Fire, PokemonType.Ghost],
+    ability: [130, 31, 69],
     iv: {
       hp: 60,
       att: 80,

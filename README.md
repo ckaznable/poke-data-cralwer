@@ -12,6 +12,9 @@ you can found `pokemon.json` and `pokemon_flat.json` in dist dictionary.
 - [x] pokemon translate name
 - [ ] move data
 - [ ] ability data
+  - [x] pokemon ability fields
+  - [ ] ability reference json data
+- [ ] different form translate
 
 ## Data struct
 
@@ -23,6 +26,7 @@ region form is in `form` fields.
 [
   {
     type: [string] | [string, string]
+    ability: number[]
     name: {
       en: string
       zh: string
@@ -39,7 +43,8 @@ region form is in `form` fields.
     },
     form?: [
       {
-        type: [string] | [string, string],
+        type: [string] | [string, string]
+        ability: number[]
         iv: {
           hp: number
           att: number
@@ -64,6 +69,7 @@ region form are set on layer 1
 [
   {
     type: [string] | [string, string]
+    ability: number[]
     name: {
       en: string
       zh: string

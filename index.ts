@@ -4,7 +4,8 @@ import { mkdirp } from "mkdirp"
 import Form from "./form/index.js"
 import { t } from "./translate.js"
 
-import { Pokemon, PokemonIV, PokemonType, PokemonWithIV, SupportLang } from "./type.js"
+import { Pokemon, PokemonIV, PokemonType, PokemonWithData, SupportLang } from "./type.js"
+import { getAbilityMap } from "./ability.js"
 
 async function getPokemonList(): Promise<Pokemon[]> {
   const document = await getUrlDoc("https://wiki.52poke.com/zh-hant/%E5%AE%9D%E5%8F%AF%E6%A2%A6%E5%88%97%E8%A1%A8%EF%BC%88%E6%8C%89%E5%85%A8%E5%9B%BD%E5%9B%BE%E9%89%B4%E7%BC%96%E5%8F%B7%EF%BC%89")
@@ -45,10 +46,40 @@ async function getPokemonList(): Promise<Pokemon[]> {
   }, [] as Pokemon[])
 }
 
+async function getPokemonWithAbility(): Promise<Record<number, number[]>> {
+  const ability = await getAbilityMap()
+  const document = await getUrlDoc("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability")
+  const pmList = Array.from(document.querySelectorAll(".sortable tbody tr"))
+  return pmList.reduce((list, pm) => {
+    const data = Array.from(pm.querySelectorAll("td")) as HTMLTableCellElement[]
+
+    if(!data.length) {
+      return list
+    }
+
+    const pmno = getDomTextNumber(data[0])
+    const ablityList = []
+
+    if(data[3].textContent && data[3].textContent in ability) {
+      ablityList.push(ability[data[3].textContent].no)
+    }
+
+    if (data[4].textContent && data[4].textContent in ability) {
+      ablityList.push(ability[data[4].textContent].no)
+    }
+
+    if (data[5].textContent && data[5].textContent in ability) {
+      ablityList.push(ability[data[5].textContent].no)
+    }
+
+    list[pmno] = ablityList
+    return list
+  }, {} as Record<number, number[]>)
+}
+
 async function getPokemonWithIV(): Promise<Record<number, PokemonIV>> {
   const document = await getUrlDoc("https://www.serebii.net/pokemon/all.shtml")
   const pmList = Array.from(document.querySelectorAll(".dextable tbody tr"))
-
   return pmList.reduce((list, pm) => {
     const data = pm.querySelectorAll("td")
     if(data.length !== 12) {
@@ -68,14 +99,15 @@ async function getPokemonWithIV(): Promise<Record<number, PokemonIV>> {
   }, {} as Record<number, PokemonIV>)
 }
 
-function merge(pm: Pokemon[], pmiv: Record<number, PokemonIV>): PokemonWithIV[] {
-  return pm.map<PokemonWithIV>(pokemon => ({
+function merge(pm: Pokemon[], pmiv: Record<number, PokemonIV>, pmAbility: Record<number, number[]>): PokemonWithData[] {
+  return pm.map<PokemonWithData>(pokemon => ({
     ...pokemon,
-    iv: pmiv[pokemon.no]
+    iv: pmiv[pokemon.no],
+    ability: pmAbility[pokemon.no]
   }))
 }
 
-function pushForm(pm: PokemonWithIV[]): PokemonWithIV[] {
+function pushForm(pm: PokemonWithData[]): PokemonWithData[] {
   return pm.map(_pm => {
     if(_pm.no in Form) {
       _pm.form = Form[_pm.no]
@@ -85,7 +117,7 @@ function pushForm(pm: PokemonWithIV[]): PokemonWithIV[] {
   })
 }
 
-function flatForm(pm: PokemonWithIV[]): PokemonWithIV[] {
+function flatForm(pm: PokemonWithData[]): PokemonWithData[] {
   return pm.reduce((list, _pm) => {
     list.push(_pm)
 
@@ -105,11 +137,11 @@ function flatForm(pm: PokemonWithIV[]): PokemonWithIV[] {
     }
 
     return list
-  }, [] as PokemonWithIV[])
+  }, [] as PokemonWithData[])
 }
 
 async function main() {
-  const mergedData = merge(await getPokemonList(), await getPokemonWithIV())
+  const mergedData = merge(await getPokemonList(), await getPokemonWithIV(), await getPokemonWithAbility())
   await mkdirp("./dist")
 
   const data = pushForm(mergedData)

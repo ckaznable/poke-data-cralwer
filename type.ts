@@ -18,8 +18,9 @@ export interface PokemonIV {
   spd: number
 }
 
-export interface PokemonWithIV extends Pokemon {
+export interface PokemonWithData extends Pokemon {
   iv: PokemonIV
+  ability: number[]
 }
 
 export enum PokemonType {
@@ -44,11 +45,31 @@ export enum PokemonType {
   Unknown = "unknown"
 }
 
-export type PokemonForm = Omit<PokemonWithIV, "no" | "name" | "form"> & { form: string[] }
+export type PokemonForm = Omit<PokemonWithData, "no" | "name" | "form"> & { form: string[] }
 export type PokemonFormMap = Record<number, PokemonForm[]>
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 export type PokemonFormTmp = Record<number, PartialBy<PokemonForm, "form">[]>
 
 export enum SupportLang {
   EN, JP, ZH
+}
+
+export interface Ability {
+  no: number
+  name: string
+  desc: string
+}
+
+export interface RegionAbility {
+  no: number
+  name: {
+    zh: string
+    en: string
+    jp: string
+  }
+  desc: {
+    zh: string
+    en: string
+    jp: string
+  }
 }
