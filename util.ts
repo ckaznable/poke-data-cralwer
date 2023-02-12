@@ -1,4 +1,6 @@
 import { PokemonForm, PokemonFormMap, PokemonFormTmp, PokemonType } from "./type.js"
+import { JSDOM } from "jsdom"
+import { getHtml } from "./cache.js"
 
 export function getTypeZHToEN(zh: string): PokemonType {
   switch(zh) {
@@ -46,4 +48,10 @@ export function fillRegionForm(data: PokemonFormTmp, form: string[]) {
   }
 
   return fillData
+}
+
+export async function getUrlDoc(url: string) {
+  const { window } = new JSDOM(await getHtml(url))
+  const { document } = window
+  return document
 }
