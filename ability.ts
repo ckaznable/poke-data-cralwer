@@ -92,3 +92,10 @@ export async function getAbilityMap(): Promise<Record<string, RegionAbility>> {
     return obj
   }, {} as Record<string, RegionAbility>)
 }
+
+export function getAbilityFileOutput(ability: Record<string, RegionAbility>): Record<number, RegionAbility> {
+  return Object.values(ability).reduce((obj, a) => {
+    obj[a.no] = a
+    return obj
+  }, {} as Record<number, RegionAbility>)
+}

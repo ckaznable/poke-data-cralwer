@@ -4,8 +4,8 @@ import { mkdirp } from "mkdirp"
 import Form from "./form/index.js"
 import { t } from "./translate.js"
 
-import { Pokemon, PokemonIV, PokemonType, PokemonWithData, SupportLang } from "./type.js"
-import { getAbilityMap } from "./ability.js"
+import { Pokemon, PokemonIV, PokemonType, PokemonWithData, RegionAbility, SupportLang } from "./type.js"
+import { getAbilityFileOutput, getAbilityMap } from "./ability.js"
 
 async function getPokemonList(): Promise<Pokemon[]> {
   const document = await getUrlDoc("https://wiki.52poke.com/zh-hant/%E5%AE%9D%E5%8F%AF%E6%A2%A6%E5%88%97%E8%A1%A8%EF%BC%88%E6%8C%89%E5%85%A8%E5%9B%BD%E5%9B%BE%E9%89%B4%E7%BC%96%E5%8F%B7%EF%BC%89")
@@ -46,8 +46,7 @@ async function getPokemonList(): Promise<Pokemon[]> {
   }, [] as Pokemon[])
 }
 
-async function getPokemonWithAbility(): Promise<Record<number, number[]>> {
-  const ability = await getAbilityMap()
+async function getPokemonWithAbility(ability: Record<string, RegionAbility>): Promise<Record<number, number[]>> {
   const document = await getUrlDoc("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Ability")
   const pmList = Array.from(document.querySelectorAll(".sortable tbody tr"))
   return pmList.reduce((list, pm) => {
@@ -141,7 +140,8 @@ function flatForm(pm: PokemonWithData[]): PokemonWithData[] {
 }
 
 async function main() {
-  const mergedData = merge(await getPokemonList(), await getPokemonWithIV(), await getPokemonWithAbility())
+  const ability = await getAbilityMap()
+  const mergedData = merge(await getPokemonList(), await getPokemonWithIV(), await getPokemonWithAbility(ability))
   await mkdirp("./dist")
 
   const data = pushForm(mergedData)
@@ -149,6 +149,9 @@ async function main() {
 
   const flatData = flatForm(mergedData)
   writeFileSync("./dist/pokemon_flat.json", JSON.stringify(flatData))
+
+  const fileAbility = getAbilityFileOutput(ability)
+  writeFileSync("./dist/ability.json", JSON.stringify(fileAbility))
 }
 
 ;(async () => {

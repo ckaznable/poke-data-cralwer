@@ -11,9 +11,9 @@ you can found `pokemon.json` and `pokemon_flat.json` in dist dictionary.
 - [x] pokemon iv and type data
 - [x] pokemon translate name
 - [ ] move data
-- [ ] ability data
+- [x] ability data
   - [x] pokemon ability fields
-  - [ ] ability reference json data
+  - [x] ability reference json data
 - [ ] different form translate
 
 ## Data struct
@@ -87,4 +87,26 @@ region form are set on layer 1
   }
   ...
 ]
+```
+
+`ability.json`
+
+ability reference data
+
+```typescript
+{
+  [ability number]: {
+    no: number
+    name: {
+      zh: string
+      en: string
+      jp: string
+    }
+    desc: {
+      zh: string
+      en: string
+      jp: string
+    }
+  }
+}
 ```
