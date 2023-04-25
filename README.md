@@ -110,3 +110,15 @@ ability reference data
   }
 }
 ```
+
+## API
+
+also use api in following path.
+
+- [ability.json](https://www.ckaznable.com/poke-data-cralwer/ability.json)
+- [pokemon_flat.json](https://www.ckaznable.com/poke-data-cralwer/pokemon_flat.json)
+- [pokemon.json](https://www.ckaznable.com/poke-data-cralwer/pokemon.json)
+
+## LICENSE
+
+MIT
