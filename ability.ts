@@ -78,14 +78,14 @@ export async function getAbilityMap(): Promise<Record<string, RegionAbility>> {
     obj[en[no].name] = {
       no,
       name: {
-        zh: zh[no].name,
-        en: en[no].name,
-        jp: jp[no].name,
+        zh: zh[no]?.name || "",
+        en: en[no]?.name || "",
+        jp: jp[no]?.name || "",
       },
       desc: {
-        zh: zh[no].desc,
-        en: en[no].desc,
-        jp: jp[no].desc,
+        zh: zh[no]?.desc || "",
+        en: en[no]?.desc || "",
+        jp: jp[no]?.desc || "",
       }
     }
 
