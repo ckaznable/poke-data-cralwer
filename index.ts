@@ -24,9 +24,9 @@ async function getPokemonList(): Promise<Pokemon[]> {
     }
 
     noSet.add(no)
-    const type: [PokemonType] | [PokemonType, PokemonType] = [getTypeZHToEN(data[5].textContent as string)]
-    if (data.length === 7) {
-      const enumT = getTypeZHToEN(data[6].textContent as string)
+    const type: [PokemonType] | [PokemonType, PokemonType] = [getTypeZHToEN(data[6].textContent as string)]
+    if (data.length === 8) {
+      const enumT = getTypeZHToEN(data[7].textContent as string)
       if(enumT != PokemonType.Unknown) {
         type.push(enumT)
       }
@@ -35,9 +35,9 @@ async function getPokemonList(): Promise<Pokemon[]> {
     list.push({
       no,
       name: {
-        zh: data[2].textContent?.replace("*", "") as string,
-        jp: data[3].textContent as string,
-        en: data[4].textContent as string,
+        zh: data[3].textContent?.replace("*", "") as string,
+        jp: data[4].textContent as string,
+        en: data[5].textContent as string,
       },
       type
     })
