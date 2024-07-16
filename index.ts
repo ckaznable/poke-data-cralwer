@@ -71,7 +71,10 @@ async function getPokemonWithAbility(ability: Record<string, RegionAbility>): Pr
       ablityList.push(ability[data[5].textContent].no)
     }
 
-    list[pmno] = ablityList
+    if(!list[pmno]) {
+      list[pmno] = ablityList
+    }
+
     return list
   }, {} as Record<number, number[]>)
 }
