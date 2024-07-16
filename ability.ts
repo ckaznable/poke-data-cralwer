@@ -3,6 +3,7 @@ import { getUrlDoc } from "./util.js"
 
 async function getZHAbilityList() {
   const document = await getUrlDoc("https://wiki.52poke.com/zh-hant/%E7%89%B9%E6%80%A7%E5%88%97%E8%A1%A8")
+  const trimNo = (no: string) => no.endsWith("*") ? no.slice(0, -1) : no
   return Array.from(document.querySelectorAll(".fulltable tbody tr")).reduce((list, dom) => {
     const rows = Array.from(dom.querySelectorAll("td"))
     if(!rows.length) {
@@ -10,8 +11,13 @@ async function getZHAbilityList() {
     }
 
     const [no, name,,, desc] = rows
-    list[+(no.textContent as string)] = {
-      no: +(no.textContent as string),
+    let numno = +trimNo(no.textContent as string)
+    if(numno >= 308) {
+      numno--
+    }
+
+    list[numno] = {
+      no: numno,
       name: name.textContent as string,
       desc: desc.textContent as string
     }
