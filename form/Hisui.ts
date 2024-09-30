@@ -16,7 +16,7 @@ const data: PokemonFormTmp = {
     }
   }],
   59: [{
-    type: [PokemonType.Psychic],
+    type: [PokemonType.Fire, PokemonType.Rock],
     ability: [22, 18, 69],
     iv: {
       hp: 95,
