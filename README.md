@@ -10,11 +10,9 @@ you can found `pokemon.json` and `pokemon_flat.json` in dist dictionary.
 
 - [x] pokemon iv and type data
 - [x] pokemon translate name
-- [ ] move data
 - [x] ability data
   - [x] pokemon ability fields
   - [x] ability reference json data
-- [ ] different form translate
 
 ## Data struct
 
